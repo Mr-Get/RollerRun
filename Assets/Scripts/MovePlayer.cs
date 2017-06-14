@@ -25,12 +25,14 @@ public class MovePlayer : MonoBehaviour {
 
     // Variables for User Control Configuration
     public float autoSpeed = 10; //How fast the ball moves forward
-    public float sensivity = 0.25F; //How far can you tilt the phone bevor it influences the ball
+    public float sensivity = 0.15F; //How far can you tilt the phone bevor it influences the ball
     public float moveSpeed = 5F; //How fast does the ball move from one line to another
 
     private int mPosition = 0; //Current line the ball is one (-1=left, 0 = middle, 1= right)
     private float linewidth = 2.0F; //Max x value the ball can move left or right
 
+    // Connection to the item that switches the control
+    private GameObject gameBall;
 
 
     //-------------------------------------------------------------------------
@@ -56,7 +58,9 @@ public class MovePlayer : MonoBehaviour {
         networkController.isMicrophoneRequested = false;
         //Get the data storage for player 01
         sensorDataStoragePlayer01 = networkDataController.GetSensordataStorageForPlayer(1);
-        
+
+        //Connect gameBall to the variable
+        gameBall = GameObject.Find("GameBall");
 	}
 	
 	void Update () {
@@ -71,16 +75,33 @@ public class MovePlayer : MonoBehaviour {
 
         if(start)
         {
-            if (h < -sensivity)
+            if(gameBall.GetComponent<CollectPoints>().effect == "switchControl")
             {
-                mPosition = -1;
+                if (h < -sensivity)
+                {
+                    mPosition = 1;
+                }
+                else if (h > sensivity)
+                {
+                    mPosition = -1;
+                }
+                else
+                    mPosition = 0;
             }
-            else if (h > sensivity)
-            {
-                mPosition = 1;
-            }
+
             else
-                mPosition = 0;
+            {
+                if (h < -sensivity)
+                {
+                    mPosition = -1;
+                }
+                else if (h > sensivity)
+                {
+                    mPosition = 1;
+                }
+                else
+                    mPosition = 0;
+            }
 
             MoveNow();
         }

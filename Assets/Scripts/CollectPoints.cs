@@ -8,6 +8,7 @@ public class CollectPoints : MonoBehaviour {
     public float doublePointsTime = 10f;
     public float triplePointsTime = 10f;
     public float shieldTime = 10f;
+    public float switchControlTime = 10f;
     public string effect = "";
 
 
@@ -29,6 +30,7 @@ public class CollectPoints : MonoBehaviour {
     Color cDoublePoints = new Color(0, 171.0F/255.0F, 1.0F);
     Color cTriplePoints = new Color(244.0F /255.0F, 146.0F / 255.0F, 0F);
     Color cShield = new Color(21.0F / 255.0F, 175.0F / 255.0F, 11.0F / 255.0F);
+    Color cSwitchControl = new Color(1.0F, 0, 0);
 
 
     // Update is called once per frame
@@ -94,6 +96,15 @@ public class CollectPoints : MonoBehaviour {
             itemEffect(true);
             Destroy(collidingObject);
         }
+
+        else if (collision.gameObject.tag == "switchControl")
+        {
+            collidingObject = collision.gameObject;
+            effect = "switchControl";
+            effectTime = switchControlTime;
+            itemEffect(true);
+            Destroy(collidingObject);
+        }
     }
 
     //Controls the color of the effects 
@@ -109,6 +120,9 @@ public class CollectPoints : MonoBehaviour {
                 break;
             case "shieldActivate":
                 this.GetComponent<Light>().color = cShield;
+                break;
+            case "switchControl":
+                this.GetComponent<Light>().color = cSwitchControl;
                 break;
         }
         
