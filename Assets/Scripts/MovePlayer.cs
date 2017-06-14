@@ -25,14 +25,14 @@ public class MovePlayer : MonoBehaviour {
 
     // Variables for User Control Configuration
     public float autoSpeed = 10; //How fast the ball moves forward
-    public float linewidth = 1.5F; //Max x value the ball can move left or right
     public float sensivity = 0.25F; //How far can you tilt the phone bevor it influences the ball
     public float moveSpeed = 5F; //How fast does the ball move from one line to another
 
     private int mPosition = 0; //Current line the ball is one (-1=left, 0 = middle, 1= right)
+    private float linewidth = 2.0F; //Max x value the ball can move left or right
 
 
-    
+
     //-------------------------------------------------------------------------
     //                    Basic Classes
     //-------------------------------------------------------------------------
