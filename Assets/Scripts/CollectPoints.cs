@@ -105,6 +105,12 @@ public class CollectPoints : MonoBehaviour {
             itemEffect(true);
             Destroy(collidingObject);
         }
+
+        else if (collision.gameObject.tag == "obstacle" && effect == "shieldActivate")
+        {
+            collidingObject = collision.gameObject;
+            Destroy(collidingObject);
+        }
     }
 
     //Controls the color of the effects 
