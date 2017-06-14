@@ -5,13 +5,15 @@ using UnityEngine;
 public class CollectPoints : MonoBehaviour {
 
     //public Variables
-    public float doublePointsTime = 30f;
-    public float triplePointsTime = 30f;
+    public float doublePointsTime = 10f;
+    public float triplePointsTime = 10f;
+    public float shieldTime = 10f;
+    public string effect = "";
+
 
     //Variable ContainerScript
     private GameObject scriptContainer;
     private float effectTime = 0f;
-    private string effect = "";
    
 
     //Colliding Object
@@ -26,6 +28,7 @@ public class CollectPoints : MonoBehaviour {
     Color cPurple = new Color(0.706F, 0.247F, 1.0F);
     Color cDoublePoints = new Color(0, 171.0F/255.0F, 1.0F);
     Color cTriplePoints = new Color(244.0F /255.0F, 146.0F / 255.0F, 0F);
+    Color cShield = new Color(21.0F / 255.0F, 175.0F / 255.0F, 11.0F / 255.0F);
 
 
     // Update is called once per frame
@@ -40,6 +43,7 @@ public class CollectPoints : MonoBehaviour {
         if (effectTime <= 0)
         {
             itemEffect(false);
+            effect = "";
         }
 
     }
@@ -81,6 +85,15 @@ public class CollectPoints : MonoBehaviour {
             itemEffect(true);
             Destroy(collidingObject);
         }
+
+        else if (collision.gameObject.tag == "shieldActivate")
+        {
+            collidingObject = collision.gameObject;
+            effect = "shieldActivate";
+            effectTime = shieldTime;
+            itemEffect(true);
+            Destroy(collidingObject);
+        }
     }
 
     //Controls the color of the effects 
@@ -93,6 +106,9 @@ public class CollectPoints : MonoBehaviour {
                 break;
             case "triplePoints":
                 this.GetComponent<Light>().color = cTriplePoints;
+                break;
+            case "shieldActivate":
+                this.GetComponent<Light>().color = cShield;
                 break;
         }
         

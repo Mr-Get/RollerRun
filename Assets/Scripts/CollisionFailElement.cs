@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class CollisionFailElement : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    GameObject gameBall;
+
+    // Use this for initialization
+    void Start () {
+        gameBall = GameObject.Find("GameBall");
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
     private void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.name.IndexOf("Ball") > -1)
+        if (col.gameObject.name.IndexOf("Ball") > -1 && gameBall.GetComponent<CollectPoints>().effect != "shieldActivate")
         {
             Destroy(col.gameObject);
         }
