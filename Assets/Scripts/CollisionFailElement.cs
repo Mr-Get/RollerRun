@@ -15,7 +15,7 @@ public class CollisionFailElement : MonoBehaviour {
     void Update () {
 		
 	}
-    private void OnCollisionEnter(Collision col)
+    private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.name.IndexOf("Ball") > -1 && gameBall.GetComponent<CollectPoints>().effect != "shieldActivate")
         {
