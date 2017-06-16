@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TriggerFailElement : MonoBehaviour
 {
@@ -23,7 +24,8 @@ public class TriggerFailElement : MonoBehaviour
     {
         if (col.gameObject.name.IndexOf("Ball") > -1 && gameBall.GetComponent<CollectPoints>().effect != "shieldActivate")
         {
-            Destroy(col.gameObject);
+            //Destroy(col.gameObject);
+            SceneManager.LoadScene("Online");
         }
     }
 }
