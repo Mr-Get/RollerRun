@@ -43,10 +43,6 @@ public class CreateRows : MonoBehaviour
             Vector3 newPos = new Vector3(0, 0, this.gameObject.transform.position.z + 20);
             CreateRow(newPos);
             CreateItem(newPos);
-
-            //TestRandom-LoadedDie
-            var loadedDie = new LoadedDie(new int[] { 100, 5, 10 });
-            Debug.Log(loadedDie.NextValue());
         }
     }
 
@@ -85,13 +81,26 @@ public class CreateRows : MonoBehaviour
             return b.GetComponent<ItemPreFabPositions>().getGenerierungAbWeite() < this.gameObject.transform.position.z;
         });
 
+        //Zu jedem generierbaren Item-Prefab die Wahrscheinlichkeit in ein Array von INT zusammenfügen.
+        int[] generateableItemRowsProbability = generateableItemRows.ConvertAll(delegate (GameObject b)
+            {
+                return b.GetComponent<ItemPreFabPositions>().wahrscheinlichkeit;
+        }).ToArray();
+
+        
+
+        Debug.Log(string.Join(";", new List<int>(generateableItemRowsProbability).ConvertAll(i => i.ToString()).ToArray()));
+
+        //Loaded Die (Zufallsgenerator mit Wahrscheinlichkeit zu jedem Item) mit der Wahrscheinlichkeitsliste instanzieren.
+        LoadedDie randomGenerateableItemRowsDie = new LoadedDie(generateableItemRowsProbability);
+
         //SaveRow generiert
         if (generatedSave != -1)
         {
             if (nowNoItemRows == 0)
             {
                 //Generate Row with Item
-                int itemRow = Random.Range(0, generateableItemRows.Count);
+                int itemRow = randomGenerateableItemRowsDie.NextValue();
                 Instantiate(generateableItemRows[itemRow], newPos, this.gameObject.transform.rotation);
                 scriptContainer.GetComponent<VariableScript>().resetNowNoItemRows();
             }
@@ -109,14 +118,14 @@ public class CreateRows : MonoBehaviour
             if (nowNoItemRows == 0)
             {
                 //Generate Row with Item
-                int itemRow = Random.Range(0, generateableItemRows.Count);
+                int itemRow = randomGenerateableItemRowsDie.NextValue();
                 while (true)
                 {
                     if (checkItemPosition(itemRow, generatedUnsave, generateableItemRows))
                     {
                         break;
                     }
-                    itemRow = Random.Range(0, generateableItemRows.Count);
+                    itemRow = randomGenerateableItemRowsDie.NextValue();
                 }
                 Instantiate(generateableItemRows[itemRow], newPos, this.gameObject.transform.rotation);
                 scriptContainer.GetComponent<VariableScript>().resetNowNoItemRows();
