@@ -20,7 +20,7 @@ public class CollisionFailElement : MonoBehaviour {
     {
         if (col.gameObject.name.IndexOf("Ball") > -1 && gameBall.GetComponent<CollectPoints>().effect != "shieldActivate")
         {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("Online");
         }
     }
 }
