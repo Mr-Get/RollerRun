@@ -88,6 +88,7 @@
     <Compile Include="Assets\Scripts\CreateRows.cs" />
     <Compile Include="Assets\Scripts\ITEM Scripts\ItemRotate.cs" />
     <Compile Include="Assets\Scripts\ItemPreFabPositions.cs" />
+    <Compile Include="Assets\Scripts\LoadedDie.cs" />
     <Compile Include="Assets\Scripts\MovePlayer.cs" />
     <Compile Include="Assets\Scripts\PreFabPositions.cs" />
     <Compile Include="Assets\Scripts\StartGame.cs" />

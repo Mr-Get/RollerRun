@@ -43,6 +43,10 @@ public class CreateRows : MonoBehaviour
             Vector3 newPos = new Vector3(0, 0, this.gameObject.transform.position.z + 20);
             CreateRow(newPos);
             CreateItem(newPos);
+
+            //TestRandom-LoadedDie
+            var loadedDie = new LoadedDie(new int[] { 100, 5, 10 });
+            Debug.Log(loadedDie.NextValue());
         }
     }
 
@@ -84,7 +88,7 @@ public class CreateRows : MonoBehaviour
         //SaveRow generiert
         if (generatedSave != -1)
         {
-            if(nowNoItemRows == 0)
+            if (nowNoItemRows == 0)
             {
                 //Generate Row with Item
                 int itemRow = Random.Range(0, generateableItemRows.Count);
@@ -102,7 +106,7 @@ public class CreateRows : MonoBehaviour
         //UnsaveRow generiert
         else if (generatedUnsave != -1)
         {
-            if(nowNoItemRows == 0)
+            if (nowNoItemRows == 0)
             {
                 //Generate Row with Item
                 int itemRow = Random.Range(0, generateableItemRows.Count);
@@ -139,7 +143,7 @@ public class CreateRows : MonoBehaviour
 
         if (leftItemPos)
         {
-            if(unsaveRowsPrefabs[generatedRowPrefabNumb].GetComponent<PreFabPositions>().leftPos)
+            if (unsaveRowsPrefabs[generatedRowPrefabNumb].GetComponent<PreFabPositions>().leftPos)
             {
                 return false;
             }
