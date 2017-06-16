@@ -24,7 +24,6 @@ public class TriggerFailElement : MonoBehaviour
     {
         if (col.gameObject.name.IndexOf("Ball") > -1 && gameBall.GetComponent<CollectPoints>().effect != "shieldActivate")
         {
-            //Destroy(col.gameObject);
             SceneManager.LoadScene("Online");
         }
     }
