@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -84,6 +86,29 @@ public class VariableScript : MonoBehaviour
 
     }
 
+    public void saveScore(string name)
+    {
+
+        List<string> highscoreList = PlayerPrefsX.GetStringArray("Highscore").ToList();
+
+        List<int> highscoreValueList = highscoreList.ConvertAll(delegate (String d)
+        {
+            return Int32.Parse(d.Split('`')[1]);
+        });
+
+        List<string> highscoreNameList = highscoreList.ConvertAll(delegate (String d)
+        {
+            return d.Split('`')[0];
+        });
+
+        // Mit Replace das Trennzeichen in der Usereingabe ersetzten!!!
+        string asdf = "ASsDF";
+        asdf.Replace('`', '´');
+
+        // Array.Sort kann Key/Value Pairs gemeinsam sortieren!!!
+        
+    }
+
     public void addRow(GameObject row)
     {
         this.lastRows.Add(row);
@@ -125,7 +150,7 @@ public class VariableScript : MonoBehaviour
 
     public void resetNowSaveRows()
     {
-        this.nowSaveRows = Random.Range(minSaveRows,maxSaveRows);
+        this.nowSaveRows = UnityEngine.Random.Range(minSaveRows,maxSaveRows);
     }
 
     public void reduceNowSaveRows()
@@ -150,7 +175,7 @@ public class VariableScript : MonoBehaviour
     
     public void resetNowNoItemRows()
     {
-        this.nowNoItemRows = Random.Range(minNoItemRows,maxNoItemRows);
+        this.nowNoItemRows = UnityEngine.Random.Range(minNoItemRows,maxNoItemRows);
     }
 
     public void reduceNowNoItemRows()
@@ -167,6 +192,7 @@ public class VariableScript : MonoBehaviour
     {
         return maxSaveRows;
     }
+
     public void UpdateScore()
     {
         scoreText.text = "Score: " + score;
