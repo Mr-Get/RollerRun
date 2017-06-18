@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\CollisionFailElement.cs" />
     <Compile Include="Assets\Scripts\CreateRows.cs" />
     <Compile Include="Assets\Scripts\HighscoreClass.cs" />
+    <Compile Include="Assets\Scripts\HighscoreElement.cs" />
     <Compile Include="Assets\Scripts\ITEM Scripts\ItemRotate.cs" />
     <Compile Include="Assets\Scripts\ItemPreFabPositions.cs" />
     <Compile Include="Assets\Scripts\LoadedDie.cs" />
