@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class VariableScript : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class VariableScript : MonoBehaviour
     //Variables for Scroe
     private Text scoreText;
     private int score;
+
+    public Text gameOverField;
 
 
     void Start()
@@ -86,27 +89,43 @@ public class VariableScript : MonoBehaviour
 
     }
 
-    public void saveScore(string name)
+    public void saveScore(string newName)
     {
+        List<HighscoreClass> highscoreList = getHighScoreList();
+        highscoreList.Add(new HighscoreClass { name = newName.Replace('`', '´'), score = getScore() });
+        highscoreList = highscoreList.OrderBy(d => d.score).Take(10).ToList();
+        setHighScoreList(highscoreList);
+    }
 
-        List<string> highscoreList = PlayerPrefsX.GetStringArray("Highscore").ToList();
+    public void gameOver()
+    {
+        GameObject.Find("GameOverCanvas").SetActive(true);
+    }
 
-        List<int> highscoreValueList = highscoreList.ConvertAll(delegate (String d)
+    public void gameOverLoadMenu()
+    {
+        saveScore(gameOverField.text.ToString());
+        SceneManager.LoadScene("Online");
+    }
+
+    public void setHighScoreList(List<HighscoreClass> highscoreList)
+    {
+        List<string> outputArray = new List<string>();
+        foreach (HighscoreClass h in highscoreList)
         {
-            return Int32.Parse(d.Split('`')[1]);
-        });
+            outputArray.Add(h.name + '`' + h.score);
+        }
+        PlayerPrefsX.SetStringArray("Highscore", outputArray.ToArray());
+    }
 
-        List<string> highscoreNameList = highscoreList.ConvertAll(delegate (String d)
+    public List<HighscoreClass> getHighScoreList()
+    {
+        List<HighscoreClass> highscoreList = new List<HighscoreClass>();
+        foreach (String d in new List<string>(PlayerPrefsX.GetStringArray("Highscore").ToList()))
         {
-            return d.Split('`')[0];
-        });
-
-        // Mit Replace das Trennzeichen in der Usereingabe ersetzten!!!
-        string asdf = "ASsDF";
-        asdf.Replace('`', '´');
-
-        // Array.Sort kann Key/Value Pairs gemeinsam sortieren!!!
-        
+            highscoreList.Add(new HighscoreClass { name = d.Split('`')[0], score = Int32.Parse(d.Split('`')[1]) });
+        }
+        return highscoreList;
     }
 
     public void addRow(GameObject row)
@@ -150,7 +169,7 @@ public class VariableScript : MonoBehaviour
 
     public void resetNowSaveRows()
     {
-        this.nowSaveRows = UnityEngine.Random.Range(minSaveRows,maxSaveRows);
+        this.nowSaveRows = UnityEngine.Random.Range(minSaveRows, maxSaveRows);
     }
 
     public void reduceNowSaveRows()
@@ -172,10 +191,10 @@ public class VariableScript : MonoBehaviour
     {
         return this.nowNoItemRows;
     }
-    
+
     public void resetNowNoItemRows()
     {
-        this.nowNoItemRows = UnityEngine.Random.Range(minNoItemRows,maxNoItemRows);
+        this.nowNoItemRows = UnityEngine.Random.Range(minNoItemRows, maxNoItemRows);
     }
 
     public void reduceNowNoItemRows()
