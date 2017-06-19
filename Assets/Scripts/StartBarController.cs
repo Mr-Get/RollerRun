@@ -24,12 +24,10 @@ public class StartBarController : MonoBehaviour
     {
         if (percent < 0 || percent > 100)
         {
-            Debug.Log("Percent not between 0 and 100!!");
+            //Debug.Log("Percent not between 0 and 100!!");
             return;
         }
         float onePercent = (fullX - emptyX) / 100;
-        float xPostion = emptyX + (onePercent * percent);
-        Debug.Log(emptyBar.transform.localPosition.x + "; " + xPostion);
-        emptyBar.transform.localPosition = new Vector3(xPostion, 0, 0);
+        emptyBar.transform.localPosition = new Vector3(emptyX + (onePercent * percent), 0, 0);
     }
 }
