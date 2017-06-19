@@ -365,9 +365,9 @@ MonoBehaviour:
     height: 421
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 00060000
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: e2fbffff00000000
+    m_ExpandedIDs: 00ceffff10cfffff04d5ffffb6ebffff6ef2ffff2cf9ffffe2faffffe2fbffff00000000922b0000ac2b0000ee2b00007639000090390000dc390000fe400000a0420000ba42000006430000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -386,7 +386,7 @@ MonoBehaviour:
       m_ClientGUIView: {fileID: 8}
     m_SearchString: 
   m_ExpandedScenes:
-  - Init
+  - Game
   m_CurrenRootInstanceID: 0
   m_Locked: 0
   m_CurrentSortingName: TransformSorting
@@ -417,14 +417,14 @@ MonoBehaviour:
     width: 764
     height: 421
   m_SceneLighting: 1
-  lastFramingTime: 5208.898278693432
-  m_2DMode: 0
+  lastFramingTime: 302.5627239836807
+  m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 523.9326, y: -285.67816, z: 788.3804}
+    m_Target: {x: 411.5601, y: 235.56816, z: 0}
     speed: 2
-    m_Value: {x: 523.9326, y: -285.67816, z: 788.3804}
+    m_Value: {x: 411.5601, y: 235.56816, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -439,26 +439,26 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
     yGrid:
-      m_Target: 1
-      speed: 2
-      m_Value: 1
-    zGrid:
       m_Target: 0
       speed: 2
       m_Value: 0
+    zGrid:
+      m_Target: 1
+      speed: 2
+      m_Value: 1
   m_Rotation:
-    m_Target: {x: -0.1935464, y: -0.21722965, z: 0.043991588, w: -0.955728}
+    m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
-    m_Value: {x: -0.1935464, y: -0.21722965, z: 0.043991588, w: -0.955728}
+    m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1157.6882
+    m_Target: 598.0816
     speed: 2
-    m_Value: 1157.6882
+    m_Value: 598.0816
   m_Ortho:
-    m_Target: 0
+    m_Target: 1
     speed: 2
-    m_Value: 0
-  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+    m_Value: 1
+  m_LastSceneViewRotation: {x: -0.1935464, y: -0.21722965, z: 0.043991588, w: -0.955728}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -527,19 +527,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts
+    - Assets/SCENES
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/SCENES
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\sebas\Documents\RollerRun
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 329}
-    m_SelectedIDs: fc270000
-    m_LastClickedID: 10236
-    m_ExpandedIDs: 00000000de240000ea250000122600009e270000fa270000fc27000056290000ba290000122a00000e2b000000ca9a3bffffff7f
+    m_SelectedIDs: b2280000
+    m_LastClickedID: 10418
+    m_ExpandedIDs: 00000000dc240000e8250000102600009c270000f8270000fa27000054290000b8290000102a00000e2b000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -567,7 +567,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000de240000ea250000122600009e270000fa270000fc27000056290000ba290000122a00000e2b0000
+    m_ExpandedIDs: 00000000dc240000e8250000102600009c270000f8270000fa27000054290000b8290000102a00000e2b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
