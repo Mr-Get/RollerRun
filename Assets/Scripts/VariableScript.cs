@@ -97,17 +97,14 @@ public class VariableScript : MonoBehaviour
     {
         List<HighscoreClass> highscoreList = getHighScoreList();
         highscoreList.Add(new HighscoreClass { name = newName.Replace('`', '´'), score = getScore() });
-        highscoreList = highscoreList.OrderBy(d => d.score).Take(10).ToList();
-        foreach(HighscoreClass e in highscoreList)
-        {
-            Debug.Log(e.name + "  " + e.score);
-        }
+        highscoreList = highscoreList.OrderByDescending(d => d.score).Take(10).ToList();
         setHighScoreList(highscoreList);
     }
 
     public void gameOver()
     {
         gameOverCanvas.SetActive(true);
+        GameObject.Find("FinalScoreCanvas").GetComponent<Text>().text = "Your final Score is: " + getScore().ToString();
     }
 
     public void gameOverLoadMenu()

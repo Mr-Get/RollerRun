@@ -30,7 +30,7 @@ public class MenuController : MonoBehaviour
         {
             highscoreList.Add(new HighscoreClass { name = "---", score = 0 });
         }
-        highscoreList = highscoreList.OrderBy(d => d.score).Take(10).ToList();
+        highscoreList = highscoreList.OrderByDescending(d => d.score).Take(10).ToList();
         setHighScoreList(highscoreList);
     }
 
