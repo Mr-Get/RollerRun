@@ -140,5 +140,15 @@ public class MovePlayer : MonoBehaviour {
 
     }
 
+    public float getH()
+    {
+        return this.h;
+    }
+
+    public float getSensitivity()
+    {
+        return this.sensivity;
+    }
+
 
 }

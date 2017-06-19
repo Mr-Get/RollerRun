@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\MovePlayer.cs" />
     <Compile Include="Assets\Scripts\PlayerPrefsX.cs" />
     <Compile Include="Assets\Scripts\PreFabPositions.cs" />
+    <Compile Include="Assets\Scripts\StartBarController.cs" />
     <Compile Include="Assets\Scripts\StartGame.cs" />
     <Compile Include="Assets\Scripts\TriggerFailElement.cs" />
     <Compile Include="Assets\Scripts\VariableScript.cs" />
