@@ -47,6 +47,7 @@ public class StartGame : MonoBehaviour
 
     void resetTimer()
     {
+        progressBar.GetComponent<StartBarController>().updateStartBar(0);
         crouchTimer = 0;
     }
 
