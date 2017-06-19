@@ -14,6 +14,7 @@ public class VariableScript : MonoBehaviour
     private List<GameObject> unsaveRowsPrefabs;
     private List<GameObject> noItemRowPrefabs;
     private List<GameObject> itemRowPrefabs;
+    private GameObject gameOverCanvas;
     private int nowSaveRows;
     public int minSaveRows;
     public int maxSaveRows;
@@ -79,6 +80,9 @@ public class VariableScript : MonoBehaviour
         }
 
         scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
+        gameOverCanvas = GameObject.Find("GameOverCanvas");
+        gameOverCanvas.SetActive(false);
+
         score = 0;
         UpdateScore();
     }
@@ -94,12 +98,16 @@ public class VariableScript : MonoBehaviour
         List<HighscoreClass> highscoreList = getHighScoreList();
         highscoreList.Add(new HighscoreClass { name = newName.Replace('`', '´'), score = getScore() });
         highscoreList = highscoreList.OrderBy(d => d.score).Take(10).ToList();
+        foreach(HighscoreClass e in highscoreList)
+        {
+            Debug.Log(e.name + "  " + e.score);
+        }
         setHighScoreList(highscoreList);
     }
 
     public void gameOver()
     {
-        GameObject.Find("GameOverCanvas").SetActive(true);
+        gameOverCanvas.SetActive(true);
     }
 
     public void gameOverLoadMenu()

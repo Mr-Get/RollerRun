@@ -87,10 +87,6 @@ public class CreateRows : MonoBehaviour
                 return b.GetComponent<ItemPreFabPositions>().wahrscheinlichkeit;
         }).ToArray();
 
-        
-
-        Debug.Log(string.Join(";", new List<int>(generateableItemRowsProbability).ConvertAll(i => i.ToString()).ToArray()));
-
         //Loaded Die (Zufallsgenerator mit Wahrscheinlichkeit zu jedem Item) mit der Wahrscheinlichkeitsliste instanzieren.
         LoadedDie randomGenerateableItemRowsDie = new LoadedDie(generateableItemRowsProbability);
 
