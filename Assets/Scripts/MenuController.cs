@@ -54,6 +54,11 @@ public class MenuController : MonoBehaviour
         return highscoreList;
     }
 
+    public HighscoreClass getHighScoreElement(int elementID)
+    {
+        return getHighScoreList()[elementID];
+    }
+
     public void onClickStartGame()
     {
         SceneManager.LoadScene("Game");
