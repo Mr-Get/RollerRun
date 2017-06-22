@@ -100,6 +100,7 @@
     <Compile Include="Assets\Scripts\StartGame.cs" />
     <Compile Include="Assets\Scripts\TriggerFailElement.cs" />
     <Compile Include="Assets\Scripts\VariableScript.cs" />
+    <Compile Include="Assets\TutorialScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\Jupiter\LICENSE.txt" />

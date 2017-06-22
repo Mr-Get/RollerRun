@@ -64,6 +64,11 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
+    public void onClickStartTutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+
     public void onClickQuit()
     {
         Application.Quit();
