@@ -54,7 +54,8 @@ public class StartGame : MonoBehaviour
     private void StartGameNow()
     {
         player01.GetComponent<MovePlayer>().start = true;
-        GameObject.Find("StartInfoCanvas").SetActive(false);
+        GameObject.Find("StartBar").SetActive(false);
+        GameObject.Find("ScriptContainer").GetComponent<TutorialScript>().startVariable = true;
     }
 
 

@@ -28,6 +28,9 @@ public class VariableScript : MonoBehaviour
 
     public Text gameOverField;
 
+    //Variable um generierung der ersten Rows zu deaktivieren. Wird für Tutorial Scene gebraucht
+    public bool firstRowGeneration = true;
+
 
     void Start()
     {
@@ -73,11 +76,15 @@ public class VariableScript : MonoBehaviour
             b.GetComponent<ItemPreFabPositions>().rightPos;
         });
 
-        lastRows = new List<GameObject>();
-        for (int i = 2; i <= 20; i = i + 2)
+        if(firstRowGeneration)
         {
-            Instantiate(createRowsPrefab[0], new Vector3(0, 0, i), this.gameObject.transform.rotation);
+            lastRows = new List<GameObject>();
+            for (int i = 2; i <= 20; i = i + 2)
+            {
+                Instantiate(createRowsPrefab[0], new Vector3(0, 0, i), this.gameObject.transform.rotation);
+            }
         }
+
 
         scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
         gameOverCanvas = GameObject.Find("GameOverCanvas");

@@ -9,6 +9,11 @@ public class TutorialScript : MonoBehaviour {
 
     private Text tutorialText;
     private int tutorialNumber = 0;
+    private float timer = 0;
+
+    //Public variabl to start the Tutorial. Will be activated by the StartGame Script
+    public bool startVariable;
+
 
 	// Use this for initialization
 	void Start () {
@@ -24,8 +29,26 @@ public class TutorialScript : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        //Add timer here
-        // e.g  effectTime -= Time.deltaTime;
+
+        //Check if the startGame Variable on the Gameball is active
+        if (startVariable)
+        {
+            timer += Time.deltaTime;
+
+            if (timer < 5)
+                setTutorialText(1);
+            else if (timer > 5 && timer < 14)
+                setTutorialText(2);
+            else if (timer > 14 && timer < 32)
+                setTutorialText(3);
+            else if (timer > 32 && timer < 35)
+                setTutorialText(4);
+            else if (timer > 35 && timer < 38)
+                setTutorialText(5);
+            else if (timer > 38 && timer < 50)
+                setTutorialText(6);
+
+        }
 
     }
 
@@ -43,6 +66,18 @@ public class TutorialScript : MonoBehaviour {
                 break;
             case 2:
                 tutorialText.text = "Are you ready for the first obstacle?\nHere it comes!";
+                break;
+            case 3:
+                tutorialText.text = "Great! Here are a few more";
+                break;
+            case 4:
+                tutorialText.text = "Well Done";
+                break;
+            case 5:
+                tutorialText.text = "Fill your score and get into the Hall of Fame by collecting points.";
+                break;
+            case 6:
+                tutorialText.text = "There are three types of cubes:\n\nGreen: 1 Point\nBlue: 5Points\nRed:30Points";
                 break;
         }
 
