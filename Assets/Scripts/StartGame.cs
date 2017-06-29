@@ -15,11 +15,16 @@ public class StartGame : MonoBehaviour
     float crouchTimer = 0;
     float sensitivity;
 
+    //Variable um Online von Testszene zu unterscheiden
+    private bool firstRowGeneration;
+
+
     // Use this for initialization
     void Start()
     {
         player01 = GameObject.Find("GameBall");
         sensitivity = GameObject.Find("GameBall").GetComponent<MovePlayer>().getSensitivity();
+        firstRowGeneration = GameObject.Find("ScriptContainer").GetComponent<VariableScript>().firstRowGeneration;
     }
 
     // Update is called once per frame
@@ -54,8 +59,17 @@ public class StartGame : MonoBehaviour
     private void StartGameNow()
     {
         player01.GetComponent<MovePlayer>().start = true;
-        GameObject.Find("StartBar").SetActive(false);
-        GameObject.Find("ScriptContainer").GetComponent<TutorialScript>().startVariable = true;
+
+        if (firstRowGeneration)
+        {
+            GameObject.Find("StartInfoCanvas").SetActive(false);
+        }
+        else
+        {
+            GameObject.Find("StartBar").SetActive(false);
+            GameObject.Find("ScriptContainer").GetComponent<TutorialScript>().startVariable = true;
+        }
+
     }
 
 

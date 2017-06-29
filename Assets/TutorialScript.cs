@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 
@@ -45,8 +46,22 @@ public class TutorialScript : MonoBehaviour {
                 setTutorialText(4);
             else if (timer > 35 && timer < 38)
                 setTutorialText(5);
-            else if (timer > 38 && timer < 50)
+            else if (timer > 38 && timer < 46)
                 setTutorialText(6);
+            else if (timer > 46 && timer < 52)
+                setTutorialText(7);
+            else if (timer > 52 && timer < 56)
+                setTutorialText(8);
+            else if (timer > 56 && timer < 60)
+                setTutorialText(9);
+            else if (timer > 60 && timer < 64)
+                setTutorialText(10);
+            else if (timer > 64 && timer < 72)
+                setTutorialText(11);
+            else if (timer > 72 && timer < 76)
+                setTutorialText(12);
+            else if (timer > 76)
+                SceneManager.LoadScene("Online"); 
 
         }
 
@@ -77,7 +92,25 @@ public class TutorialScript : MonoBehaviour {
                 tutorialText.text = "Fill your score and get into the Hall of Fame by collecting points.";
                 break;
             case 6:
-                tutorialText.text = "There are three types of cubes:\n\nGreen: 1 Point\nBlue: 5Points\nRed:30Points";
+                tutorialText.text = "There are three types of cubes:\nGreen: 1 Point\nBlue: 5 Points\nRed: 20 Points";
+                break;
+            case 7:
+                tutorialText.text = "Collect this item to double the points you get.";
+                break;
+            case 8:
+                tutorialText.text = "Or even triple them with this item.";
+                break;
+            case 9:
+                tutorialText.text = "This item will shield you from danger!";
+                break;
+            case 10:
+                tutorialText.text = "Avoid this one. You'll see why...";
+                break;
+            case 11:
+                tutorialText.text = "Be careful. You can only have one item at the same time. If you hit two in a row, the previous one will be lost.";
+                break;
+            case 12:
+                tutorialText.text = "Good luck!";
                 break;
         }
 
