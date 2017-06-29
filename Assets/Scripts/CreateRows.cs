@@ -19,6 +19,7 @@ public class CreateRows : MonoBehaviour
     private int generatedUnsave;
     private int itemGeneriereAb;
     private int itemWahrscheinlichkeit;
+    private int offset;
 
     // Use this for initialization
     void Start()
@@ -26,6 +27,7 @@ public class CreateRows : MonoBehaviour
         scriptContainer = GameObject.Find("ScriptContainer");
         unsaveRowsPrefabs = scriptContainer.GetComponent<VariableScript>().getUnsaveRowsPrefabs();
         saveRowsPrefabs = scriptContainer.GetComponent<VariableScript>().getSaveRowsPrefabs();
+        offset = scriptContainer.GetComponent<VariableScript>().getOffset();
     }
 
     // Update is called once per frame
@@ -40,7 +42,7 @@ public class CreateRows : MonoBehaviour
         {
             generatedSave = -1;
             generatedUnsave = -1;
-            Vector3 newPos = new Vector3(0, 0, this.gameObject.transform.position.z + 20);
+            Vector3 newPos = new Vector3(0, 0, this.gameObject.transform.position.z + (offset * 2));
             CreateRow(newPos);
             CreateItem(newPos);
         }

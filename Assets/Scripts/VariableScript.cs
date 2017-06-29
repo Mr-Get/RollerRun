@@ -21,6 +21,7 @@ public class VariableScript : MonoBehaviour
     private int nowNoItemRows;
     public int minNoItemRows;
     public int maxNoItemRows;
+    public int generierungsOffsetRows;
 
     //Variables for Scroe
     private Text scoreText;
@@ -79,7 +80,7 @@ public class VariableScript : MonoBehaviour
         if(firstRowGeneration)
         {
             lastRows = new List<GameObject>();
-            for (int i = 2; i <= 20; i = i + 2)
+            for (int i = 2; i <= generierungsOffsetRows * 2; i = i + 2)
             {
                 Instantiate(createRowsPrefab[0], new Vector3(0, 0, i), this.gameObject.transform.rotation);
             }
@@ -238,5 +239,10 @@ public class VariableScript : MonoBehaviour
     public int getScore()
     {
         return score;
+    }
+
+    public int getOffset()
+    {
+        return this.generierungsOffsetRows;
     }
 }
