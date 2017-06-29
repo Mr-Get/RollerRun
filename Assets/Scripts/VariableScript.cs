@@ -14,6 +14,7 @@ public class VariableScript : MonoBehaviour
     private List<GameObject> unsaveRowsPrefabs;
     private List<GameObject> noItemRowPrefabs;
     private List<GameObject> itemRowPrefabs;
+    private GameObject startInfoCanvas;
     private GameObject gameOverCanvas;
     private int nowSaveRows;
     public int minSaveRows;
@@ -91,6 +92,8 @@ public class VariableScript : MonoBehaviour
         gameOverCanvas = GameObject.Find("GameOverCanvas");
         gameOverCanvas.SetActive(false);
 
+        startInfoCanvas = GameObject.Find("StartInfoCanvas");
+
         score = 0;
         UpdateScore();
     }
@@ -111,6 +114,7 @@ public class VariableScript : MonoBehaviour
 
     public void gameOver()
     {
+        startInfoCanvas.SetActive(false);
         gameOverCanvas.SetActive(true);
         GameObject.Find("FinalScoreCanvas").GetComponent<Text>().text = "Your final Score is: " + getScore().ToString();
     }
@@ -118,6 +122,11 @@ public class VariableScript : MonoBehaviour
     public void gameOverLoadMenu()
     {
         saveScore(gameOverField.text.ToString());
+        SceneManager.LoadScene("Online");
+    }
+
+    public void gameOverLoadMenuTutorial()
+    {
         SceneManager.LoadScene("Online");
     }
 

@@ -1,6 +1,6 @@
-﻿<Properties StartupItem="RollerRun.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MovePlayer.cs">
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="Assets\Scripts\MovePlayer.cs" Line="1" Column="1" />
     </Files>
